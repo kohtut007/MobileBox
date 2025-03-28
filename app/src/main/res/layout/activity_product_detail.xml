@@ -1,0 +1,830 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:title="Product name"
+            app:menu="@menu/menu_cart"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:subtitleTextColor="?attr/colorOnPrimary"
+            app:titleTextAppearance="@style/ToolbarTitleText"
+            app:titleTextColor="?attr/colorOnPrimary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/unfocus_color"
+                app:iss_auto_cycle="true"
+                app:iss_delay="1000"
+                app:iss_period="1000"
+                app:iss_selected_dot="@drawable/default_selected_dot"
+                app:iss_text_align="CENTER"
+                app:iss_unselected_dot="@drawable/default_unselected_dot" />
+
+            <!-- Page Count (e.g., 1/5) -->
+            <TextView
+                android:id="@+id/tvPageCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                android:background="@drawable/page_count_background"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingHorizontal="@dimen/spacing_small"
+                android:text="1/5"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_micro" />
+
+            <RelativeLayout
+                android:id="@+id/rlContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image_slider"
+                android:padding="@dimen/spacing_medium">
+
+                <!-- Color Label -->
+                <TextView
+                    android:id="@+id/tvColorLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Color"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textFontWeight="700"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/spacing_xsmall"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Total : 50"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_xsmall"
+                    android:textFontWeight="700"/>
+
+                <!-- Color Selection: RadioGroup with three RadioButtons -->
+                <RadioGroup
+                    android:id="@+id/radioGroupColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvColorLabel"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/firstRadioButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/red"
+                        android:button="@null" />
+
+                    <!--                    <RadioButton-->
+                    <!--                        android:id="@+id/secondRadioButton"-->
+                    <!--                        android:layout_width="40dp"-->
+                    <!--                        android:layout_height="40dp"-->
+                    <!--                        android:layout_marginRight="8dp"-->
+                    <!--                        android:background="@drawable/circle_background"-->
+                    <!--                        android:backgroundTint="@color/purple"-->
+                    <!--                        android:button="@null" />-->
+
+                    <ImageView
+                        android:id="@+id/secondRadioButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/purple"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_done"
+                        app:tint="@color/white" />
+
+                    <RadioButton
+                        android:id="@+id/thirdRadioButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/black"
+                        android:button="@null" />
+                </RadioGroup>
+
+                <!-- RAM/Storage Label below Color selection -->
+                <TextView
+                    android:id="@+id/tvRamStorageLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/radioGroupColor"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="RAM/Storage"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textFontWeight="700"
+                    android:textSize="@dimen/text_size_small" />
+
+                <!-- RAM/Storage Selection: LinearLayout with Buttons -->
+                <HorizontalScrollView
+                    android:id="@+id/scrollableRamStorage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvRamStorageLabel"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:scrollbars="none">
+
+                    <RelativeLayout
+                        android:id="@+id/llRamStorageStorage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvRamStorageLabel"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:orientation="horizontal">
+
+                        <CheckedTextView
+                            android:id="@+id/selectorFirstRamStorageType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_primary_background"
+                            android:backgroundTint="@color/light_blue"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:padding="@dimen/spacing_small"
+                            android:paddingStart="@dimen/spacing_medium"
+                            android:paddingEnd="@dimen/spacing_medium"
+                            android:text="6/128 GB"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_small" />
+
+                        <CheckedTextView
+                            android:id="@+id/selectorSecondRamStorageType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toEndOf="@id/selectorFirstRamStorageType"
+                            android:background="@drawable/button_grey_background"
+                            android:backgroundTint="@color/gray"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:padding="@dimen/spacing_small"
+                            android:paddingStart="@dimen/spacing_medium"
+                            android:paddingEnd="@dimen/spacing_medium"
+                            android:text="8/128 GB"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_small" />
+
+                        <CheckedTextView
+                            android:id="@+id/btnThirdRamStorageType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toEndOf="@id/selectorSecondRamStorageType"
+                            android:background="@drawable/button_grey_background"
+                            android:backgroundTint="@color/gray"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:padding="@dimen/spacing_small"
+                            android:paddingStart="@dimen/spacing_medium"
+                            android:paddingEnd="@dimen/spacing_medium"
+                            android:text="8/256 GB"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_small" />
+
+                        <CheckedTextView
+                            android:id="@+id/k"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toEndOf="@id/btnThirdRamStorageType"
+                            android:background="@drawable/button_grey_background"
+                            android:backgroundTint="@color/gray"
+                            android:gravity="center"
+                            android:padding="@dimen/spacing_small"
+                            android:paddingStart="@dimen/spacing_medium"
+                            android:paddingEnd="@dimen/spacing_medium"
+                            android:text="8/256 GB"
+                            android:textColor="@color/black" />
+                    </RelativeLayout>
+                </HorizontalScrollView>
+
+                <!-- Quantity Label -->
+                <TextView
+                    android:id="@+id/tvQuantityLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/llQuantity"
+                    android:layout_alignBottom="@id/llQuantity"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="Quantity"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textFontWeight="700"
+                    android:textSize="@dimen/text_size_small" />
+
+                <!-- Quantity Selector: LinearLayout with Decrease Button, Count, Increase Button -->
+                <LinearLayout
+                    android:id="@+id/llQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/scrollableRamStorage"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_toEndOf="@id/tvQuantityLabel"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btnDecreaseQuantity"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_remove_circle" />
+
+                    <TextView
+                        android:id="@+id/tvQuantityCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="1"
+                        android:textColor="@android:color/black"
+                        android:textFontWeight="700"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <ImageButton
+                        android:id="@+id/btnIncreaseQuantity"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_add_circle" />
+                </LinearLayout>
+
+                <!-- Available Quantity -->
+                <TextView
+                    android:id="@+id/tvAvailableQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/llQuantity"
+                    android:layout_alignBottom="@id/llQuantity"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:layout_toEndOf="@id/llQuantity"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center|start"
+                    android:text="Available quantity : 100000"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textFontWeight="700"
+                    android:textSize="@dimen/text_size_xsmall" />
+
+                <!-- Specifications Label -->
+                <TextView
+                    android:id="@+id/tvSpecificationsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvAvailableQuantity"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Specifications"
+                    android:textColor="@android:color/black"
+                    android:textFontWeight="700"
+                    android:textSize="16sp" />
+
+                <!-- Specifications TableLayout -->
+                <TableLayout
+                    android:id="@+id/tableSpecifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvSpecificationsLabel"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Display size"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=":"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvDisplaySize"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="6.28 Inches"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Chipset"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvChipset"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Apple M 1 pro max 5G"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="CPU"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvCpu"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Core i9 10 gen (3x35.0 GHz)"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="GPU"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvGpu"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Nvidia G Force RTX 3090 TI"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Operating system"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvOperatingSystem"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Android 12, MIUI 13"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Front camera"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvFrontCamera"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": 64 MP(wide)"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Rear camera"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvRearCamera"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": 108 MP(wide) + 64Mp(ultrawide)"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Resolution"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvResolution"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": 2080 x  4024 Pixels"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Display type"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvDisplayType"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": OLET, 1B colors, 120Hz"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Battery"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvBattery"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": 5000 mAh Li-Po Battery"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Charging"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvCharging"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Fast charging 108W, Fast Air charging 90WFast charging 108W, Fast Air charging 90W"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="SIM"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvSIM"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Triple SIM (E sim support)"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="USB type"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvUsbType"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": USB Type-C 5.0, USB On-The-Go"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="3.5mm jack port"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvJackPort"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": No"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Headphone port"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvHeadphonePort"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": 3.5 mm"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Memory card slot \n(SD Card)"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvMemoryCardSlot"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Yes"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Speaker"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvSpeaker"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Stereo speakers"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Display protection"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvDisplayProtection"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Corning Gorilla Glass Victus"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Device security"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvDeviceSecurity"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": Face unlock, Fingerprint sensor (under display, optical)"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Warranty"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvWarranty"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": 1 year"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text="Released date"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            android:textSize="@dimen/text_size_micro" />
+
+                        <TextView
+                            android:id="@+id/tvReleasedDate"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingVertical="@dimen/spacing_xsmall"
+                            android:text=": 2022, January 14"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="@dimen/text_size_micro" />
+                    </TableRow>
+
+
+
+
+
+
+
+
+
+                </TableLayout>
+
+                <Button
+                    android:id="@+id/btnAddToCart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tableSpecifications"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:drawableStart="@drawable/ic_cart"
+                    android:gravity="center"
+                    android:stateListAnimator="@null"
+                    android:text="Add to cart"
+                    android:textColor="@android:color/white"
+                    android:translationZ="2dp"
+                    app:backgroundTint="@color/colorPrimary" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Mobile Box</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_log_in">Login</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_register">"Register"</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="do_not_have_acc">"Don’t have an account?"</string>
+    <string name="label_forgot_psw">Forgot password?</string>
+    <string name="lbl_comfirm_dialog_text">Confirmation message will be send to your phone. Please enter confirmation code below.</string>
+    <string name="prompt_enter_code">Enter Code</string>
+    <string name="have_an_acc">Have an account?</string>
+    <string name="prompt_name">Name</string>
+    <string name="prompt_phone_number">Phone number</string>
+    <string name="prompt_confirm_password">Confirm password</string>
+    <string name="lbl_welcome">Welcome!</string>
+    <string name="lbl_onboarding_info_msg">With Mobile Box, you can browse mobile device and order online.</string>
+    <string name="lbl_next">Next</string>
+    <string name="lbl_previous">Previous</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="original_price"><strike>250000 MMK</strike></string>
+    <string name="prompt_retrieve_type">Retrieve type</string>
+    <string name="prompt_address">Address</string>
+    <string name="prompt_choose_branch">Choose Branch</string>
+    <string name="prompt_payment_type">Payment type</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+</resources>

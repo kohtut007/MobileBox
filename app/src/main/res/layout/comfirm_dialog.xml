@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/spacing_medium">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/spacing_xlarge">
+
+
+    <TextView
+        android:id="@+id/tv_dialog_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="@font/roboto_regular"
+        android:padding="10dp"
+        android:text="@string/lbl_comfirm_dialog_text"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_dialog_msg"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:background="@drawable/custom_edit_text"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:hint="@string/prompt_enter_code"
+        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:padding="@dimen/spacing_medium"
+        android:selectAllOnFocus="true"
+        android:textColorHint="@color/unfocus_color"
+        android:textSize="@dimen/text_size_small" />
+
+    <RelativeLayout
+        android:id="@+id/rl_resend_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_code"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimary"
+            android:indeterminateTintMode="src_in"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_alignTop="@id/tv_resend_again"
+            android:layout_alignBottom="@id/tv_resend_again"
+            android:button="@color/colorPrimary"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_resend_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@id/pb_loading"
+            android:background="@color/white"
+            android:text="Resend again"
+            android:textAllCaps="false"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="@dimen/text_size_regular"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/rl_btn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_small"
+        android:layout_below="@id/rl_resend_again"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_xsmall"
+            android:layout_weight="1"
+            android:backgroundTint="@color/unfocus_color"
+            android:gravity="center"
+            android:elevation="@dimen/spacing_regular"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/spacing_xsmall"
+            android:layout_toRightOf="@id/btn_cancel"
+            android:layout_weight="1"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

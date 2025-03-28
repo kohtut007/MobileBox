@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "399092766385",
+    "project_id": "mobile-box-95774",
+    "storage_bucket": "mobile-box-95774.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399092766385:android:cd5d3af433dd03156df490",
+        "android_client_info": {
+          "package_name": "com.homeworks.mobilebox"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSkaIz76-05-1FUpewH2zEoTCMAKEyyuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

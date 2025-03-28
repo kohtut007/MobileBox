@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="16dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <!-- Filter by Brand Label -->
+    <TextView
+        android:id="@+id/tvFilterBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter by brand"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ChipGroup Row 1 -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupRow1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:chipSpacingHorizontal="8dp"
+        app:chipSpacingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFilterBrand"
+        app:singleLine="false">
+
+        <!-- Xiaomi (Checked) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipXiaomi"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="true"
+            android:padding="10dp"
+            android:text="Xiaomi"
+            android:textColor="@color/colorPrimary"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconTint="@color/colorPrimary"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/light_blue"
+            app:chipCornerRadius="16dp" />
+
+        <!-- Samsung (Unselected/Gray) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSamsung"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="false"
+            android:text="Samsung"
+            android:textColor="@color/unfocus_color"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/gray"
+            app:chipCornerRadius="16dp" />
+
+        <!-- Apple (Checked) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipApple"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="true"
+            android:text="Apple product"
+            android:textColor="@color/colorPrimary"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconTint="@color/colorPrimary"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/light_blue"
+            app:chipCornerRadius="16dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- ChipGroup Row 2 -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupRow2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:chipSpacingHorizontal="8dp"
+        app:chipSpacingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chipGroupRow1"
+        app:singleLine="false">
+
+        <!-- Xiaomi (Light Blue) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSecondXiaomi"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="true"
+            android:text="Xiaomi"
+            android:textColor="@color/colorPrimary"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconTint="@color/colorPrimary"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/light_blue"
+            app:chipCornerRadius="16dp" />
+
+        <!-- Samsung (Gray) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSecondSamsung"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="false"
+            android:text="Samsung"
+            android:textColor="@color/unfocus_color"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/gray"
+            app:chipCornerRadius="16dp" />
+
+        <!-- Apple (Light Blue) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSecondApple"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="true"
+            android:text="Apple product"
+            android:textColor="@color/colorPrimary"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconTint="@color/colorPrimary"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/light_blue"
+            app:chipCornerRadius="16dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Filter by Price -->
+    <TextView
+        android:id="@+id/tvFilterPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Filter by price"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chipGroupRow2" />
+
+    <!-- Price Sorting Buttons (Right-aligned) -->
+    <LinearLayout
+        android:id="@+id/llPriceSort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFilterPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvFilterPrice">
+
+        <!-- Descending Price -->
+        <ImageButton
+            android:id="@+id/btnSortDesc"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/circle_background"
+            android:padding="4dp"
+            android:src="@drawable/ic_arrow_down"
+            app:backgroundTint="@color/unfocus_color" />
+
+        <!-- Ascending Price -->
+        <ImageButton
+            android:id="@+id/btnSortAsc"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle_background"
+            android:padding="4dp"
+            android:src="@drawable/ic_arrow_up"
+            app:backgroundTint="@color/colorPrimary" />
+    </LinearLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cgFirstPriceFilter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:chipSpacingHorizontal="8dp"
+        app:chipSpacingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFilterPrice"
+        app:singleLine="false">
+
+        <!-- Xiaomi (Checked) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipFirst"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="false"
+            android:text="50,000"
+            android:textColor="@color/unfocus_color"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconTint="@color/colorPrimary"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/gray"
+            app:chipCornerRadius="16dp" />
+
+        <!-- Samsung (Unselected/Gray) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSecond"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="false"
+            android:text="100,000"
+            android:textColor="@color/unfocus_color"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/gray"
+            app:chipCornerRadius="16dp" />
+
+        <!-- Apple (Checked) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipThird"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="true"
+            android:text="200,000"
+            android:textColor="@color/colorPrimary"
+            app:checkedIcon="@drawable/ic_done"
+            app:checkedIconTint="@color/colorPrimary"
+            app:checkedIconVisible="true"
+            app:chipBackgroundColor="@color/light_blue"
+            app:chipCornerRadius="16dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/btnClearFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginBottom="@dimen/spacing_large"
+        android:backgroundTint="@color/unfocus_color"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Clear Filter"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnConfirm"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cgFirstPriceFilter" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginBottom="@dimen/spacing_large"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Confirm"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnClearFilter"
+        app:layout_constraintTop_toBottomOf="@id/cgFirstPriceFilter" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
