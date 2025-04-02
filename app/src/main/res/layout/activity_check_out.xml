@@ -113,6 +113,7 @@
             android:background="@drawable/custom_edit_text"
             android:fontFamily="@font/roboto_regular"
             android:hint="@string/prompt_address"
+            android:visibility="visible"
             android:inputType="textEmailAddress"
             android:padding="@dimen/spacing_medium"
             android:selectAllOnFocus="true"
@@ -132,6 +133,7 @@
             android:hint="@string/prompt_choose_branch"
             android:inputType="textEmailAddress"
             android:padding="@dimen/spacing_medium"
+            android:visibility="visible"
             android:selectAllOnFocus="true"
             android:textColor="@color/black"
             android:textColorHint="@color/unfocus_color"
@@ -139,8 +141,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_address" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/edt_payment_type"
+        <Spinner
+            android:id="@+id/spinner_payment_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
@@ -173,7 +175,7 @@
             android:textColorHint="@color/unfocus_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_payment_type" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner_payment_type" />
 
 
         <Button

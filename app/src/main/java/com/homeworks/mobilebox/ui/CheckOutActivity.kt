@@ -14,6 +14,7 @@ class CheckOutActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCheckOutBinding
     private var retrieveTypeItems = listOf("Pick up", "Delivery")
+    private var paymentTypeItems = listOf("KBZ Pay", "Wave Pay")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +23,9 @@ class CheckOutActivity : AppCompatActivity() {
 
         catchEvent()
 
-        val arrayAdapter = ArrayAdapter(this, R.layout.simple_spinner_item, retrieveTypeItems)
-        arrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
-        binding.spinnerRetrieveType.adapter = arrayAdapter
+        val retrieveArrayAdapter = ArrayAdapter(this, R.layout.simple_spinner_item, retrieveTypeItems)
+        retrieveArrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+        binding.spinnerRetrieveType.adapter = retrieveArrayAdapter
 
         binding.spinnerRetrieveType.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
@@ -35,24 +36,38 @@ class CheckOutActivity : AppCompatActivity() {
                     id: Long,
                 ) {
                     val selectedItem = parent.getItemAtPosition(position).toString()
-                    Toast.makeText(
-                        this@CheckOutActivity,
-                        "selected $selectedItem type.",
-                        Toast.LENGTH_LONG
-                    ).show()
+//                    Toast.makeText(
+//                        this@CheckOutActivity,
+//                        "selected $selectedItem type.",
+//                        Toast.LENGTH_LONG
+//                    ).show()
+                    when(selectedItem) {
+                        "Pick up" -> {
+                            binding.edtAddress.visibility = View.GONE
+                            binding.edtChooseBranch.visibility = View.VISIBLE
+//                            binding.edtPhoneNumber.text = // user register phone
+                        }
+                        "Delivery" -> {
+                            binding.edtAddress.visibility = View.VISIBLE
+                            binding.edtChooseBranch.visibility = View.GONE
+                        }
+                    }
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
 
                 }
             }
+
+        var paymentArrayAdapter = ArrayAdapter(this, R.layout.simple_spinner_item, paymentTypeItems)
+        paymentArrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+        binding.spinnerPaymentType.adapter = paymentArrayAdapter
     }
 
     private fun catchEvent() {
         binding.btnCheckOut.setOnClickListener {
             var address = binding.edtAddress.text.toString()
             var branch = binding.edtChooseBranch.text.toString()
-            var paymentType = binding.edtPaymentType.text.toString()
             var phoneNumber = binding.edtPhoneNumber.text.toString()
 
             if (TextUtils.isEmpty(address)) {
@@ -61,9 +76,6 @@ class CheckOutActivity : AppCompatActivity() {
             } else if (TextUtils.isEmpty(branch)) {
                 binding.edtChooseBranch.error = "Password is required!"
                 binding.edtChooseBranch.requestFocus()
-            } else if (TextUtils.isEmpty(paymentType)) {
-                binding.edtPaymentType.error = "Confirm Password is required!"
-                binding.edtPaymentType.requestFocus()
             } else if (TextUtils.isEmpty(phoneNumber)) {
                 binding.edtPhoneNumber.error = "Phone number is required!"
                 binding.edtPhoneNumber.requestFocus()
