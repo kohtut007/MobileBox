@@ -1,127 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/spacing_small"
+    android:layout_margin="8dp"
     android:background="@color/white"
-    app:cardElevation="@dimen/spacing_medium"
-    app:cardCornerRadius="@dimen/spacing_small">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="156dp"
         android:layout_height="wrap_content"
         android:background="@color/white">
 
-        <FrameLayout
-            android:id="@+id/fl_phone"
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/ivPImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iv_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/productImage"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/iv_phone" />
+        <!-- Favorite Icon -->
+        <ImageView
+            android:id="@+id/ivFav"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/circle_background"
+            android:padding="4dp"
+            android:src="@drawable/ic_favorite_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/wishlistButton"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_margin="8dp"
-                android:layout_gravity="top|end"
-                android:background="@drawable/circle_background"
-                android:padding="4dp"
-                android:src="@drawable/ic_favorite_border"
-                app:layout_constraintEnd_toEndOf="parent"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/csInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPImage">
+            <!-- Product Information (Text Views) -->
+            <TextView
+                android:id="@+id/tvPName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Redmi note 8 pro"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_micro"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </FrameLayout>
+            <TextView
+                android:id="@+id/tvPPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="290000 MMK"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_xsmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPName" />
 
+            <TextView
+                android:id="@+id/tvOriginalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/original_price"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_xxxsmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPPrice" />
 
-        <TextView
-            android:id="@+id/productName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fl_phone"
-            android:layout_marginStart="@dimen/spacing_medium"
-            android:layout_marginTop="@dimen/spacing_small"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Redmi note 8 pro"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_regular" />
+            <!-- Discount Percentage -->
+            <TextView
+                android:id="@+id/tvDiscountPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="20% Off"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/text_size_ultrasmall"
+                app:layout_constraintStart_toEndOf="@id/tvOriginalPrice"
+                app:layout_constraintTop_toTopOf="@id/tvOriginalPrice" />
 
-        <TextView
-            android:id="@+id/productPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/productName"
-            android:layout_alignStart="@id/productName"
-            android:fontFamily="@font/roboto_regular"
-            android:text="290000 MMK"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_small" />
+            <TextView
+                android:id="@+id/tvBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Xiaomi"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_xxsmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvOriginalPrice" />
 
-        <TextView
-            android:id="@+id/originalPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/productPrice"
-            android:layout_alignStart="@id/productName"
-            android:fontFamily="@font/roboto_regular"
-            android:text="@string/original_price"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_regular" />
-
-        <TextView
-            android:id="@+id/discount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/originalPrice"
-            android:layout_alignParentTop="@id/productName"
-            android:layout_toEndOf="@id/originalPrice"
-            android:fontFamily="@font/roboto_regular"
-            android:paddingStart="@dimen/spacing_xsmall"
-            android:text="20% Off"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/orange"
-            android:textSize="@dimen/text_size_xsmall" />
-
-        <TextView
-            android:id="@+id/brandName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/originalPrice"
-            android:layout_alignStart="@id/productName"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Xiaomi"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_micro" />
-
-
-        <TextView
-            android:id="@+id/stockStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/brandName"
-            android:layout_alignStart="@id/productName"
-            android:fontFamily="@font/roboto_regular"
-            android:text="In stock"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginBottom="@dimen/spacing_medium"
-            android:textSize="@dimen/text_size_micro" />
-
-    </RelativeLayout>
+            <!-- Stock Status -->
+            <TextView
+                android:id="@+id/tvStockStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="In stock"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_xxsmall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBrand" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

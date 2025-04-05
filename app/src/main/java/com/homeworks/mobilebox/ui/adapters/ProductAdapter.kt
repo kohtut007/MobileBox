@@ -18,12 +18,12 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val productImage: ImageView = itemView.findViewById(R.id.productImage)
-        val productName: TextView = itemView.findViewById(R.id.productName)
-        val productPrice: TextView = itemView.findViewById(R.id.productPrice)
-        val originalPrice: TextView = itemView.findViewById(R.id.originalPrice)
-        val discount: TextView = itemView.findViewById(R.id.discount)
-        val brandName: TextView = itemView.findViewById(R.id.brandName)
-        val stockStatus: TextView = itemView.findViewById(R.id.stockStatus)
+        val productName: TextView = itemView.findViewById(R.id.tvPName)
+        val productPrice: TextView = itemView.findViewById(R.id.tvPPrice)
+        val originalPrice: TextView = itemView.findViewById(R.id.tvOriginalPrice)
+        val discount: TextView = itemView.findViewById(R.id.tvDiscountPercentage)
+        val brandName: TextView = itemView.findViewById(R.id.tvBrand)
+        val stockStatus: TextView = itemView.findViewById(R.id.tvStockStatus)
 
         init {
             itemView.setOnClickListener {

@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.models.SlideModel
 import com.homeworks.mobilebox.R
 import com.homeworks.mobilebox.databinding.FragmentHomeBinding
 import com.homeworks.mobilebox.ui.ProductDetailActivity
@@ -28,7 +26,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpImageSlideShow()
+//        setUpImageSlideShow()
         setUpRecyclerView()
         catchEvent()
     }
@@ -43,17 +41,17 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun setUpImageSlideShow() {
-        val imageSlider = binding.imageSlider
-        val imageList = ArrayList<SlideModel>()
-
-        imageList.add(SlideModel(R.drawable.iv_phone))
-        imageList.add(SlideModel(R.drawable.iv_redmi))
-        imageList.add(SlideModel(R.drawable.iv_tecno_camon))
-
-        // Set images and scale type
-        imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
-    }
+//    private fun setUpImageSlideShow() {
+//        val imageSlider = binding.imageSlider
+//        val imageList = ArrayList<SlideModel>()
+//
+//        imageList.add(SlideModel(R.drawable.iv_phone))
+//        imageList.add(SlideModel(R.drawable.iv_redmi))
+//        imageList.add(SlideModel(R.drawable.iv_tecno_camon))
+//
+//        // Set images and scale type
+//        imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
+//    }
 
     private fun catchEvent() {
         // Additional event handling can be placed here.

@@ -10,6 +10,7 @@
     <dimen name="spacing_xxlarge">64dp</dimen>
     <dimen name="spacing_xxxlarge">128dp</dimen>
 
+    <dimen name="text_size_ultrasmall">4sp</dimen>
     <dimen name="text_size_xxxsmall">6sp</dimen>
     <dimen name="text_size_xxsmall">8sp</dimen>
     <dimen name="text_size_xsmall">10sp</dimen>

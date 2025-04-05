@@ -38,18 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.denzcoskun.imageslider.ImageSlider
-                android:id="@+id/image_slider"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="@color/unfocus_color"
-                app:iss_auto_cycle="true"
-                app:iss_delay="1000"
-                app:iss_period="1000"
-                app:iss_selected_dot="@drawable/default_selected_dot"
-                app:iss_text_align="CENTER"
-                app:iss_unselected_dot="@drawable/default_unselected_dot" />
-
             <!-- Page Count (e.g., 1/5) -->
             <TextView
                 android:id="@+id/tvPageCount"
@@ -70,7 +58,6 @@
                 android:id="@+id/rlContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/image_slider"
                 android:padding="@dimen/spacing_medium">
 
                 <!-- Color Label -->
@@ -96,8 +83,8 @@
                     android:text="Total : 50"
                     android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size_xsmall"
-                    android:textFontWeight="700"/>
+                    android:textFontWeight="700"
+                    android:textSize="@dimen/text_size_xsmall" />
 
                 <!-- Color Selection: RadioGroup with three RadioButtons -->
                 <RadioGroup

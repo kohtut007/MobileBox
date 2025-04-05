@@ -24,7 +24,7 @@
     <string name="lbl_previous">Previous</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="original_price"><strike>250000 MMK</strike></string>
+    <string name="original_price"><strike> 250000 MMK</strike></string>
     <string name="prompt_retrieve_type">Retrieve type</string>
     <string name="prompt_address">Address</string>
     <string name="prompt_choose_branch">Choose Branch</string>
