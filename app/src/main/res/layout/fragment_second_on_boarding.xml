@@ -1,0 +1,96 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/csFirstRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivFirstImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/home_shopping_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFirstText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:text="Browse product"
+            app:layout_constraintBottom_toBottomOf="@id/ivFirstImage"
+            app:layout_constraintStart_toEndOf="@+id/ivFirstImage"
+            app:layout_constraintTop_toTopOf="@+id/ivFirstImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/csSecondRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/csFirstRow"
+        app:layout_constraintStart_toStartOf="@+id/csFirstRow"
+        app:layout_constraintTop_toBottomOf="@+id/csFirstRow">
+
+        <ImageView
+            android:id="@+id/ivSecondImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/home_shopping_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSecondText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:text="@string/add_to_cart"
+            app:layout_constraintBottom_toBottomOf="@id/ivSecondImage"
+            app:layout_constraintStart_toEndOf="@+id/ivSecondImage"
+            app:layout_constraintTop_toTopOf="@+id/ivSecondImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/csThirdRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/csSecondRow"
+        app:layout_constraintStart_toStartOf="@+id/csSecondRow"
+        app:layout_constraintTop_toBottomOf="@+id/csSecondRow">
+
+        <ImageView
+            android:id="@+id/ivThirdImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/home_shopping_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvThirdText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/order_product"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivThirdImage"
+            app:layout_constraintStart_toEndOf="@+id/ivThirdImage"
+            app:layout_constraintTop_toTopOf="@+id/ivThirdImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

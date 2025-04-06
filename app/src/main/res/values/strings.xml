@@ -31,4 +31,13 @@
     <string name="prompt_payment_type">Payment type</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="browse_product">Browse product</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="order_product">Order product</string>
+    <string name="easy_to_use">Easy to use</string>
+    <string name="variety_of_models">Variety of models</string>
+    <string name="user_friendly">User friendly</string>
+    <string name="browse_info_text">With Mobile Box, you can browse mobile device and order online.</string>
+    <string name="let_s_start">Let\'s Start</string>
+    <string name="next">Next</string>
 </resources>

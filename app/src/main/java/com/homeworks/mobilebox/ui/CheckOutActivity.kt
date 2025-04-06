@@ -68,7 +68,7 @@ class CheckOutActivity : AppCompatActivity() {
         binding.btnCheckOut.setOnClickListener {
             var address = binding.edtAddress.text.toString()
             var branch = binding.edtChooseBranch.text.toString()
-            var phoneNumber = binding.edtPhoneNumber.text.toString()
+            var phoneNumber = binding.etPhoneNumber.text.toString()
 
             if (TextUtils.isEmpty(address)) {
                 binding.edtAddress.error = "Address is required!"
@@ -77,8 +77,8 @@ class CheckOutActivity : AppCompatActivity() {
                 binding.edtChooseBranch.error = "Password is required!"
                 binding.edtChooseBranch.requestFocus()
             } else if (TextUtils.isEmpty(phoneNumber)) {
-                binding.edtPhoneNumber.error = "Phone number is required!"
-                binding.edtPhoneNumber.requestFocus()
+                binding.etPhoneNumber.error = "Phone number is required!"
+                binding.etPhoneNumber.requestFocus()
             } else {
                 Toast.makeText(this, "Checkout", Toast.LENGTH_LONG).show()
             }

@@ -1,30 +1,30 @@
 package com.homeworks.mobilebox.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.homeworks.mobilebox.databinding.ActivitySplashScreenBinding
-import com.homeworks.mobilebox.ui.auth.LoginActivity
+import com.homeworks.mobilebox.presentation.ui.onboarding.OnboardingActivity
+import com.homeworks.mobilebox.ui.util.viewBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySplashScreenBinding
+    private val binding by viewBinding(ActivitySplashScreenBinding::inflate)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, 300)
+        lifecycleScope.launch {
+            delay(2000L)
+            Intent(this@SplashScreenActivity, OnboardingActivity::class.java).apply {
+                startActivity(this)
+                finish()
+            }
+        }
     }
 }
